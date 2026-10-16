@@ -493,14 +493,14 @@ There is no accumulated weather state that two implementations could let drift a
 step to get wrong, and any component can compute the wind for any round without having observed
 the rounds in between --- which is what lets a \ship{} plan a route several rounds ahead.
 
-\textbf{The \texttt{Direction} returned is the direction the wind blows \emph{from}}, exactly as
-at sea: a north wind comes out of the north. Sailing into the wind therefore means sailing along
-that same direction, so the course whose relative angle to it is $0$ is the one that is shut.
+\textbf{The \texttt{Direction} returned is the direction the wind blows \emph{towards}}, exactly as
+at sea: a north wind blows towards the north. Sailing into the wind therefore means sailing along
+the opposite direction, so the course whose relative angle to it is $3$ is the one that is shut.
 
 The laws the function must obey, and what the wind does to a \ship, are in the \MD. In short: from
 one round to the next it holds or turns by one step and never two, so it can never reverse in a
 single round; it takes all six values within any sixty rounds; and the one course whose relative
-angle to it is $3$ is forbidden.
+angle to it is $0$ is forbidden.
 
 \textbf{The weather seed is not the generation seed.} Both are derived from the game seed, as
 independent streams, and only the weather one is ever given to a \ship. A \ship{} holding the
